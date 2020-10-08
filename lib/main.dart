@@ -9,28 +9,29 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Course',
-      home: Scaffold(
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget{
+  MyHomePage();
+
+  List<String> names = ["Tom", "Jerry", "Rick"];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
         appBar: AppBar(
           title: Text("Flutter Course"),
         ),
-        body: Column(
-          children: [
-            Row(
-            children: [
-              Expanded(child: Text("Hi")),
-              Switch(value: false, onChanged: (value) {})
-            ],
-          ),
-          Divider(),
-          Row(
-            children: [
-              Expanded(child: Text("Bye")),
-              Switch(value: false, onChanged: (value) {})
-            ],
-          ),
-          ],
-        )
-      )
-    );
+        body: ListView.builder(
+          itemCount: names.length,
+          itemBuilder: (BuildContext context, int index){
+            return Card(
+              child: Text(names[index]),
+            );
+          })
+      );
   }
 }
