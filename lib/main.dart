@@ -23,14 +23,32 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("Flutter Course"),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.bedtime),
+            onPressed: add,
+          ),
+          IconButton(
+            icon: Icon(Icons.dashboard),
+            onPressed: add,
+          )
+        ]
+      ),
       body: Center(
-        child: IconButton(icon: Icon(Icons.beach_access, color: Colors.blue),
-        onPressed: () {
-          print("Hola");
-        },
-        iconSize: 200,),
+        child: IconButton(
+          icon: Icon(Icons.beach_access, color: Colors.blue),
+          onPressed: () {
+            print("Hola");
+          },
+          iconSize: 200,
+        ),
       ),
     );
+  }
+
+  void add(){
+    print("Hola");
   }
 }
