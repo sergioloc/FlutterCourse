@@ -1,37 +1,58 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Course',
+      title: 'Material App',
       home: MyHomePage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget{
-  MyHomePage();
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key}) : super(key: key);
 
-  List<String> names = ["Tom", "Jerry", "Rick"];
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  String text = "Hi";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Flutter Course"),
-        ),
-        body: ListView.builder(
-          itemCount: names.length,
-          itemBuilder: (BuildContext context, int index){
-            return Card(
-              child: Text(names[index]),
-            );
-          })
-      );
+      appBar: AppBar(),
+      body: Center(
+        child: Text(text),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: changeText,
+      ),
+    );
+  }
+
+  void changeText() {
+    setState(() {
+      if (text == "Hi")
+        text = "Bye";
+      else
+        text = "Hi";
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
   }
 }
