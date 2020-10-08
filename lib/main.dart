@@ -25,10 +25,11 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Image.network(
-          "https://cdn.iconscout.com/icon/free/png-512/flutter-2038877-1720090.png",
-          height: 100,
-        ),
+        child: IconButton(icon: Icon(Icons.beach_access, color: Colors.blue),
+        onPressed: () {
+          print("Hola");
+        },
+        iconSize: 200,),
       ),
     );
   }
