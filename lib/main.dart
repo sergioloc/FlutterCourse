@@ -13,20 +13,22 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("Flutter Course"),
         ),
-        body: SizedBox(
-          width: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                color: Colors.orange,
-                height: 100,
-                width: 100,
-              ),
-              Text("Hi")
+        body: Column(
+          children: [
+            Row(
+            children: [
+              Expanded(child: Text("Hi")),
+              Switch(value: false, onChanged: (value) {})
             ],
           ),
+          Divider(),
+          Row(
+            children: [
+              Expanded(child: Text("Bye")),
+              Switch(value: false, onChanged: (value) {})
+            ],
+          ),
+          ],
         )
       )
     );
